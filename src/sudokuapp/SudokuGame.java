@@ -12,14 +12,28 @@ import SudokuApp.SudokuValidator;
  * @author Jorge Aguirre
  */
 public class SudokuGame extends SudokuGrid implements SudokuValidator {
+
+    private int[][] grid; 
+    
+    public SudokuGame() {
+        grid = new int[9][9]; 
+    }
+    
     @Override
     public void initializeGrid() {
-        // Inicialización del tablero
+        grid[0][0] = 5; grid[0][1] = 3; grid[0][4] = 7;
+        grid[1][0] = 6; grid[1][3] = 1; grid[1][4] = 9;
+        grid[1][5] = 5; grid[2][1] = 9; grid[2][2] = 8;
+        grid[2][7] = 6;
     }
 
     @Override
     public void setCell(int row, int col, int value) {
-        // Lógica para colocar un valor
+        if (row >= 0 && row < 9 && col >= 0 && col < 9 && value >= 1 && value <= 9) {
+            grid[row][col] = value;
+        } else {
+            System.out.println("no valido");
+        }
     }
 
     @Override
