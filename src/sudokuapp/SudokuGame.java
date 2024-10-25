@@ -4,22 +4,35 @@
  */
 package sudokuapp;
 
+import java.util.Random;
+
 /**
  *
  * @author Jorge Aguirre
  */
 public class SudokuGame extends SudokuGrid implements SudokuValidator {
-    private int[][] grid; 
+    private int[][] grid;   
     
     public SudokuGame() {
         grid = new int[9][9]; 
     }
     
+    
+    @Override
     public void initializeGrid() {
-        grid[0][0] = 5; grid[0][1] = 3; grid[0][4] = 7;
-        grid[1][0] = 6; grid[1][3] = 1; grid[1][4] = 9;
-        grid[1][5] = 5; grid[2][1] = 9; grid[2][2] = 8;
-        grid[2][7] = 6;
+        Random random = new Random();
+        int attempts = 0;
+
+        while (attempts < 20) {
+            int row = random.nextInt(9);
+            int col = random.nextInt(9);
+            int value = random.nextInt(9) + 1;
+
+            if (grid[row][col] == 0 && isValidMove(row, col, value)) {
+                grid[row][col] = value;
+                attempts++;
+            }
+        }
     }
     
     
@@ -99,4 +112,13 @@ public class SudokuGame extends SudokuGrid implements SudokuValidator {
         // Si pasa todo es true
         return true;
     }
+    
+    public void clearBoard() {
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                grid[row][col] = 0;
+            }
+        }
+    }
+
 }
