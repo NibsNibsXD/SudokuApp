@@ -8,6 +8,10 @@ package sudokuapp;
  *
  * @author Jorge Aguirre
  */
-public class SudokuGrid {
+public abstract class SudokuGrid {
+    protected int[][] grid;
     
+    public abstract void initializeGrid();
+    public abstract void setCell(int row, int col, int value);
+    public abstract int getCell(int row, int col);
 }

@@ -14,7 +14,14 @@ public class SudokuApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Crear una instancia del juego
+        SudokuGame game = new SudokuGame();
+        
+        // Inicializar el tablero del juego
+        game.initializeGrid();
+        
+        // Crear e iniciar la interfaz gráfica
+        SudokuGUI gui = new SudokuGUI(game);
     }
     
 }
