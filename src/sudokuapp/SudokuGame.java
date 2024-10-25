@@ -40,8 +40,12 @@ public class SudokuGame extends SudokuGrid implements SudokuValidator {
 
     @Override
     public int getCell(int row, int col) {
-        // Obtener el valor de una celda
-        return 0; //0 temporal
+        if (row >= 0 && row < 9 && col >= 0 && col < 9) {
+            return grid[row][col];
+        } else {
+            System.out.println("no valido.");
+            return -1;
+        }
     }
 
     @Override
