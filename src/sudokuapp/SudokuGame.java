@@ -77,30 +77,26 @@ public class SudokuGame extends SudokuGrid implements SudokuValidator {
         return true;
     }
     
-    
-    
     public boolean isBoardComplete() {
-    for (int row = 0; row < 9; row++) {
-        for (int col = 0; col < 9; col++) {
-            int value = grid[row][col];
-            // Si la celda está vacía, el tablero no está completo
-            if (value == 0) {
-                return false;
-            }
-            // Temporalmente vacía la celda para comprobar la validez del valor
-            grid[row][col] = 0;
-            // Comprueba si el valor es válido en su posición actual
-            if (!isValidMove(row, col, value)) {
-                // Restaura el valor original si no es válido
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                int value = grid[row][col];
+                if (value == 0) {
+                    return false;
+                }
+                
+                grid[row][col] = 0;
+                
+                if (!isValidMove(row, col, value)) {
+                    
+                    grid[row][col] = value;
+                    return false;
+                }
+                
                 grid[row][col] = value;
-                return false;
             }
-            // Restaura el valor original si es válido
-            grid[row][col] = value;
         }
+        // Si pasa todo es true
+        return true;
     }
-    // Si todas las celdas están llenas y válidas, el tablero está completo y correcto
-    return true;
-}
-
 }

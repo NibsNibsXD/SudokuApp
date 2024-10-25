@@ -28,7 +28,7 @@ public class SudokuGUI {
     private void initializeGUI() {
         frame = new JFrame("Sudoku Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000, 1000); 
+        frame.setSize(1000,1000); 
         frame.setLayout(new BorderLayout());
 
         JPanel gridPanel = new JPanel(new GridLayout(9, 9));
@@ -44,7 +44,7 @@ public class SudokuGUI {
                     cells[row][col].setText(String.valueOf(value));
                     cells[row][col].setEditable(false); 
                 }
-                cells[row][col].addActionListener(new CellActionListener(row, col));
+                //cells[row][col].addActionListener(new CellActionListener(row, col));
             }
         }
         
@@ -94,4 +94,4 @@ public class SudokuGUI {
     }
 }
 
-}
+}//ca,bio
