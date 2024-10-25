@@ -4,9 +4,6 @@
  */
 package SudokuApp;
 
-import SudokuApp.SudokuValidator;
-import SudokuApp.SudokuValidator;
-
 /**
  *
  * @author Jorge Aguirre
