@@ -80,9 +80,23 @@ public class SudokuGame extends SudokuGrid implements SudokuValidator {
         return true;
     }
 
-    @Override
     public boolean isBoardComplete() {
-        // Validar si el tablero está completo
-        return false; //false temporal
+    for (int row = 0; row < 9; row++) {
+        for (int col = 0; col < 9; col++) {
+            int value = grid[row][col];
+            if (value == 0) {
+                return false;
+            }
+            grid[row][col] = 0;
+            if (!isValidMove(row, col, value)) {
+                grid[row][col] = value;
+                return false;
+            }
+            grid[row][col] = value;
+        }
     }
+    // si nada retorna sera true
+    return true;
+}
+
 }
