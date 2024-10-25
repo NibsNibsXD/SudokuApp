@@ -47,13 +47,37 @@ public class SudokuGame extends SudokuGrid implements SudokuValidator {
 
     @Override
     public boolean isValidMove(int row, int col, int value) {
-        // Validar un movimiento
-        //validar numero dentro de 1 y 9 y no sea letra
-        //try catch
-        //si el numero es correcto poner verde la casilla
-        //si esta mala rojo
-        return false; //false temporal
+        if (row < 0 || row >= 9 || col < 0 || col >= 9 || value < 1 || value > 9) {
+            System.out.println("Posición o valor inválido.");
+            return false;
+        }
 
+        // misma fila
+        for (int i = 0; i < 9; i++) {
+            if (grid[row][i] == value) {
+                return false;
+            }
+        }
+
+        // misma columna
+        for (int i = 0; i < 9; i++) {
+            if (grid[i][col] == value) {
+                return false;
+            }
+        }
+
+        //mismo 3x3
+        int startRow = (row / 3) * 3;
+        int startCol = (col / 3) * 3;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (grid[startRow + i][startCol + j] == value) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     @Override
