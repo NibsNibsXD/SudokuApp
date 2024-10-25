@@ -11,6 +11,8 @@ import SudokuApp.SudokuValidator;
  *
  * @author Jorge Aguirre
  */
+
+
 public class SudokuGame extends SudokuGrid implements SudokuValidator {
 
     private int[][] grid; 
