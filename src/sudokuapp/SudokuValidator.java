@@ -9,5 +9,6 @@ package sudokuapp;
  * @author Jorge Aguirre
  */
 public interface SudokuValidator {
-    
+    boolean isValidMove(int row, int col, int value);
+    boolean isBoardComplete();
 }
