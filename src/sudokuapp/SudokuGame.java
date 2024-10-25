@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package sudokuapp;
+package SudokuApp;
+
+import SudokuApp.SudokuValidator;
+import SudokuApp.SudokuValidator;
 
 /**
  *
@@ -28,6 +31,10 @@ public class SudokuGame extends SudokuGrid implements SudokuValidator {
     @Override
     public boolean isValidMove(int row, int col, int value) {
         // Validar un movimiento
+        //validar numero dentro de 1 y 9 y no sea letra
+        //try catch
+        //si el numero es correcto poner verde la casilla
+        //si esta mala rojo
         return false; //false temporal
 
     }
